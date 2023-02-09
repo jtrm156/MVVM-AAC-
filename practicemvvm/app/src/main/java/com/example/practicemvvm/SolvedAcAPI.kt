@@ -8,6 +8,6 @@ interface SolvedAcAPI {
     @GET("/api/v3/user/show")
     suspend fun getUserData(
         @Query("handle")
-        handler : String
+        handle : String
     ) : Response<SolveAcGetUserDataModel>
 }

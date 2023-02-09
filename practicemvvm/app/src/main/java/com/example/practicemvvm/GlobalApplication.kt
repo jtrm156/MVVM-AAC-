@@ -7,6 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.security.SecureRandom
@@ -52,6 +53,7 @@ class GlobalApplication: Application() {
         val okHttpClient = getUnsafeOkHttpClient() // SSL인증서 허용을 위한 OkHttpClient.Builder
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             //.writeTimeout(20, TimeUnit.SECONDS) //쓰는 기능은 현재 프로젝트에 없음.
             //.addNetworkInterceptor(InterceptorForHeader()) 헤더가 필요 없음.
             .build()

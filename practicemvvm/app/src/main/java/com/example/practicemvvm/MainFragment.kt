@@ -14,7 +14,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private fun setUpBtnListenenr() {
         viewDataBinding.searchBtn.setOnClickListener {
-            val fragment = childFragmentManager.findFragmentById(viewDataBinding.userProfileContainer.id) as UserProfileFragment
+            val fragment = childFragmentManager.findFragmentById(viewDataBinding.userProfileContainer.id) as UserProfileFragment?
 
             if (fragment == null) {
                 val bundle = Bundle().apply {

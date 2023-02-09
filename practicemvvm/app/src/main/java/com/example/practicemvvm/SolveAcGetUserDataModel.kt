@@ -4,42 +4,42 @@ import com.google.gson.annotations.SerializedName
 
 data class SolveAcGetUserDataModel (
     @SerializedName("handle")
-    val handle : String,
+    val handle: String,
 
     @SerializedName("bio")
-    val bio : String,
+    val bio: String,
 
     @SerializedName("organizations")
-    val organization : List<OrganizationModel>,
+    val organizations: List<OrganizationsModel>,
 
     @SerializedName("background")
-    val background : BackGroundData,
+    val background: BackgroundData,
 
     @SerializedName("profileImageUrl")
-    val profileImageUrl : String,
+    val profileImageUrl: String,
 
     @SerializedName("solvedCount")
-    val solvedCount : Int,
+    val solvedCount: Int,
 
     @SerializedName("tier")
-    val tier : Int
+    val tier: Int
 ) {
-    var code : Int = 0
-    var tierText : String = ""
+    var code: Int = 0
+    var tierText: String = ""
 
-    data class OrganizationModel(
+    data class OrganizationsModel(
         @SerializedName("name")
-        val name : String
+        val name: String
     )
 
-    data class BackGroundData(
+    data class BackgroundData(
         @SerializedName("backgroundImageUrl")
-        val backgroundImageUrl : String,
+        val backgroundImageUrl: String,
 
         @SerializedName("displayName")
-        val displayName : String,
+        val displayName: String,
 
         @SerializedName("displayDescription")
-        val displayDescription : String
+        val displayDescription: String
     )
 }

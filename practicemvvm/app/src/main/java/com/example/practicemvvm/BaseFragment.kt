@@ -24,7 +24,6 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
         init()
 
-
         return viewDataBinding.root
     }
 }

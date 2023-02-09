@@ -18,16 +18,15 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
     private fun initViewModel() {
         viewModelFactory = APIViewModelFactory(SolvedAcAPIRepository())
-        userDataViewModel = ViewModelProvider(requireActivity(), viewModelFactory)
-            .get(UserDataViewModel::class.java)
+        userDataViewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(UserDataViewModel::class.java)
+        viewDataBinding.model = userDataViewModel
     }
 
     private fun setUpObserver() {
         userDataViewModel.getUserDataRepositories.observe(viewLifecycleOwner) {
             data ->
-            viewDataBinding.model = data
 
-            if(data.code != 200) {
+            if (data.code != 200) {
                 Toast.makeText(requireContext(), "ID에 해당하는 유저가 없습니다", Toast.LENGTH_SHORT).show()
             }
         }

@@ -1,5 +1,6 @@
 package com.example.practicemvvm
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -15,27 +16,35 @@ class UserDataViewModel(private val repository : SolvedAcAPIRepository) : ViewMo
             try {
                 repository.getUserData(handle).let {
                     response ->
-
+                    Log.d("api_request_url::", response.raw().request.url.toString())
+                    Log.d("get_user_api", response.code().toString() + " " + response.message())
                     if (response.code() == 200) {
                         response.body()?.code = response.code()
 
                         response.body()?.let {
                             setTierText(it)
                         }
-
+                        Log.e("12345","${response.body()}")
                         getUserDataRepositories.postValue((response.body()))
                     } else {
                         getUserDataRepositories.postValue(SolveAcGetUserDataModel(
-                            "","",mutableListOf(), SolveAcGetUserDataModel.BackGroundData("","",""),
-                            "", 0, 0).apply {
+                            "",
+                            "",
+                            mutableListOf(),
+                            SolveAcGetUserDataModel.BackgroundData("","",""),
+                            "",
+                            0,
+                            0).apply {
                                 code = response.code()
                         })
                     }
                 }
             } catch (e: ConnectException) {
                 e.printStackTrace()
+                Log.d("api_exception", e.toString())
             } catch (e : Exception) {
                 e.printStackTrace()
+                Log.d("api_exception", e.toString())
             }
         }
     }
