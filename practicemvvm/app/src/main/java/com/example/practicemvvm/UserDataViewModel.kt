@@ -16,6 +16,7 @@ class UserDataViewModel(private val repository : SolvedAcAPIRepository) : ViewMo
             try {
                 repository.getUserData(handle).let {
                     response ->
+                    Log.d("api_request", response.code().toString())
                     Log.d("api_request_url::", response.raw().request.url.toString())
                     Log.d("get_user_api", response.code().toString() + " " + response.message())
                     if (response.code() == 200) {
