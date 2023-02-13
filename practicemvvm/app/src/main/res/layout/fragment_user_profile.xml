@@ -8,7 +8,7 @@
 
         <variable
             name="model"
-            type="com.example.practicemvvm.UserDataViewModel" />
+            type="com.example.practicemvvm.presentation.viewModel.UserDataViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

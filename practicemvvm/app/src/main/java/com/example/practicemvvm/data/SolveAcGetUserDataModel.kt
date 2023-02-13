@@ -1,4 +1,4 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.data
 
 import com.google.gson.annotations.SerializedName
 

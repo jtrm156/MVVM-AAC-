@@ -1,6 +1,8 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.presentation.view
 
 import android.os.Bundle
+import com.example.practicemvvm.R
+import com.example.practicemvvm.config.BaseFragment
 import com.example.practicemvvm.databinding.FragmentMainBinding
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {

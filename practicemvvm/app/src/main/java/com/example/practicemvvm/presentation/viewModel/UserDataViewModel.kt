@@ -1,8 +1,10 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.presentation.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.practicemvvm.data.SolveAcGetUserDataModel
+import com.example.practicemvvm.data.SolvedAcAPIRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +30,8 @@ class UserDataViewModel(private val repository : SolvedAcAPIRepository) : ViewMo
                         Log.e("12345","${response.body()}")
                         getUserDataRepositories.postValue((response.body()))
                     } else {
-                        getUserDataRepositories.postValue(SolveAcGetUserDataModel(
+                        getUserDataRepositories.postValue(
+                            SolveAcGetUserDataModel(
                             "",
                             "",
                             mutableListOf(),

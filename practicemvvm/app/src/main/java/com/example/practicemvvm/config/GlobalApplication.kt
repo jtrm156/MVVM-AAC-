@@ -1,4 +1,4 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.config
 
 import android.app.Application
 import android.widget.ImageView
@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.practicemvvm.R
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -33,7 +34,9 @@ class GlobalApplication: Application() {
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(view)
             } else {
-                view.setImageDrawable(ContextCompat.getDrawable(view.context, R.drawable.ic_no_image))
+                view.setImageDrawable(ContextCompat.getDrawable(view.context,
+                    R.drawable.ic_no_image
+                ))
             }
         }
     }

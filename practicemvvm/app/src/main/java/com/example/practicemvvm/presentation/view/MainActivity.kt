@@ -1,7 +1,8 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.practicemvvm.R
 import com.example.practicemvvm.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

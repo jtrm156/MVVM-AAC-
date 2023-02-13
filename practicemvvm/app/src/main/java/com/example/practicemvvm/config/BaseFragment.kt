@@ -1,4 +1,4 @@
-package com.example.practicemvvm
+package com.example.practicemvvm.config
 
 import android.os.Bundle
 import android.view.LayoutInflater
