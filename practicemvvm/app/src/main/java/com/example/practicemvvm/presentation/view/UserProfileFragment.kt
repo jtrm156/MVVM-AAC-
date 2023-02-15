@@ -9,9 +9,7 @@ import com.example.practicemvvm.data.SolvedAcAPIRepository
 import com.example.practicemvvm.presentation.viewModel.UserDataViewModel
 import com.example.practicemvvm.databinding.FragmentUserProfileBinding
 
-class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
-    override val layoutId: Int = R.layout.fragment_user_profile
-
+class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>(R.layout.fragment_user_profile) {
     lateinit var viewModelFactory : APIViewModelFactory
     lateinit var userDataViewModel : UserDataViewModel
 
@@ -25,7 +23,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         viewModelFactory = APIViewModelFactory(SolvedAcAPIRepository())
         userDataViewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(
             UserDataViewModel::class.java)
-        viewDataBinding.model = userDataViewModel
+        binding.model = userDataViewModel
     }
 
     private fun setUpObserver() {

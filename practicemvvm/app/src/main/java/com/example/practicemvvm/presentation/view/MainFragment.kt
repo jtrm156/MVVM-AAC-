@@ -5,31 +5,30 @@ import com.example.practicemvvm.R
 import com.example.practicemvvm.config.BaseFragment
 import com.example.practicemvvm.databinding.FragmentMainBinding
 
-class MainFragment : BaseFragment<FragmentMainBinding>() {
-    override val layoutId : Int = R.layout.fragment_main
+class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun init() {
-        viewDataBinding.handle = "" // 양방향 데이터바인딩 값 초기화
+        binding.handle = "" // 양방향 데이터바인딩 값 초기화
 
         setUpBtnListenenr()
     }
 
     private fun setUpBtnListenenr() {
-        viewDataBinding.searchBtn.setOnClickListener {
-            val fragment = childFragmentManager.findFragmentById(viewDataBinding.userProfileContainer.id) as UserProfileFragment?
+        binding.searchBtn.setOnClickListener {
+            val fragment = childFragmentManager.findFragmentById(binding.userProfileContainer.id) as UserProfileFragment?
 
             if (fragment == null) {
                 val bundle = Bundle().apply {
-                    putString("handle", viewDataBinding.handle)
+                    putString("handle", binding.handle)
                 }
                 childFragmentManager
                     .beginTransaction()
-                    .replace(viewDataBinding.userProfileContainer.id, UserProfileFragment().apply {
+                    .replace(binding.userProfileContainer.id, UserProfileFragment().apply {
                         arguments = bundle
                     })
                     .commit()
             } else {
-                fragment.userDataViewModel.getUserData(viewDataBinding.handle.toString())
+                fragment.userDataViewModel.getUserData(binding.handle.toString())
             }
         }
     }
